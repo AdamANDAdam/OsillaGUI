@@ -1,0 +1,140 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import time
+from matplotlib.animation import FuncAnimation
+import random
+from itertools import count
+import pandas as pd
+
+plt.style.use('seaborn-white')
+import numpy as np
+
+
+plt.axis([0, 10, 0, 2]) #tutaj zdefiniuj rozmiar plotu
+
+
+smu1 = "SMU1"
+smu2 = "SMU2"
+napiecie_1 = 0.5
+
+    
+
+for i in range(2):
+    
+    with X100.USB('COM11') as Dev1: #Connect to the Device via USB
+#    results = vstack([Dev1[smu].oneshot(v) for v in volts]) #Create array of oneshots
+     pomiar_1 = (Dev1[smu1].oneshot(napiecie_1))
+     pomiar_2 = (Dev1[smu2].oneshot(napiecie_1))
+     
+
+     zmiana_krotki_1 = (pomiar_1[0])
+     zmiana_krotki_2 = (pomiar_2[0])
+
+     list_I_1 = zmiana_krotki_1[1]
+     list_V_1 = zmiana_krotki_1[0] 
+     list_I_2 = zmiana_krotki_2[1]
+     list_V_2 = zmiana_krotki_2[0]
+
+#    y = np.random.random()
+    plt.subplot(521)
+    plt.scatter(i, list_V_1)
+    plt.subplot(522)
+    plt.scatter(i, list_V_2)
+    plt.pause(0.01)
+    
+    with X100.USB('COM10') as Dev2: #Connect to the Device via USB
+#    results = vstack([Dev2[smu].oneshot(v) for v in volts]) #Create array of oneshots
+     pomia_1 = (Dev2[smu1].oneshot(napiecie_1))
+     pomia_2 = (Dev2[smu2].oneshot(napiecie_1))
+
+     miana_krotki_1 = (pomia_1[0])
+     miana_krotki_2 = (pomia_2[0])
+#    print(results) # Print results
+    # print(pomia_1[0])
+   #  print(pomia_2)
+    # print("Zmierzony prad ", miana_krotki[1])
+    
+     list_I_1 = miana_krotki_1[1]
+     list_V_1 = miana_krotki_1[0] 
+
+     list_I_2 = miana_krotki_2[1]
+     list_V_2 = miana_krotki_2[0]
+
+#    y = np.random.random()
+    plt.subplot(523)
+    plt.scatter(i, list_V_1)
+    plt.subplot(524)
+    plt.scatter(i, list_V_2)
+    plt.pause(0.01)
+    
+    
+    with X100.USB('COM9') as Dev3: #Connect to the Device via USB
+#    results = vstack([Dev3[smu].oneshot(v) for v in volts]) #Create array of oneshots
+     pomiar3_1 = (Dev3[smu1].oneshot(napiecie_1))
+     pomiar3_2 = (Dev3[smu2].oneshot(napiecie_1))
+
+     zmiana_krotki_3 = (pomiar3_1[0])
+     zmiana_krotki_4 = (pomiar3_2[0])
+     
+     list_I_4 = zmiana_krotki_3[1]
+     list_V_4 = zmiana_krotki_3[0] 
+     list_I_5 = zmiana_krotki_4[1]
+     list_V_5 = zmiana_krotki_4[0]
+
+#    y = np.random.random()
+    plt.subplot(525)
+    plt.scatter(i, list_V_4)
+    plt.subplot(526)
+    plt.scatter(i, list_V_5)
+    plt.pause(0.01)
+    
+    
+    with X100.USB('COM7') as Dev4: #Connect to the Device via USB
+#    results = vstack([Dev4[smu].oneshot(v) for v in volts]) #Create array of oneshots
+     pomiar4_1 = (Dev4[smu1].oneshot(napiecie_1))
+     pomiar5_2 = (Dev4[smu2].oneshot(napiecie_1))
+    
+
+     zmiana_krotki_5 = (pomiar4_1[0])
+     zmiana_krotki_6 = (pomiar5_2[0])
+
+     list_I_6 = zmiana_krotki_5[1]
+     list_V_6 = zmiana_krotki_5[0] 
+
+     list_I_7 = zmiana_krotki_6[1]
+     list_V_7 = zmiana_krotki_6[0]
+
+#    y = np.random.random()
+    plt.subplot(527)
+    plt.scatter(i, list_V_6)
+    plt.subplot(528)
+    plt.scatter(i, list_V_7)
+    plt.pause(0.01)
+    
+    
+    with X100.USB('COM6') as Dev5: #Connect to the Device via USB
+#    results = vstack([Dev5[smu].oneshot(v) for v in volts]) #Create array of oneshots
+     pomiar6_1 = (Dev5[smu1].oneshot(napiecie_1))
+     pomiar7_2 = (Dev5[smu2].oneshot(napiecie_1))
+
+
+     zmiana_krotki_7 = (pomiar6_1[0])
+     zmiana_krotki_8 = (pomiar7_2[0])
+    
+     list_I_8 = zmiana_krotki_7[1]
+     list_V_8 = zmiana_krotki_7[0] 
+
+     list_I_9 = zmiana_krotki_8[1]
+     list_V_9 = zmiana_krotki_8[0]
+
+#    y = np.random.random()
+    plt.subplot(529)
+    plt.scatter(i, list_V_6)
+    plt.subplot(5,2,10)
+    plt.scatter(i, list_V_7)
+    plt.pause(0.01)
+
+    #tutaj specjalny kod zeby zamykac okno na koniec
+plt.show(block=False)
+plt.pause(3)
+plt.close()
